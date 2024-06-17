@@ -1,7 +1,17 @@
-<h2>{{title}}</h2>
+<h2>{{ title }}</h2>
 <nav>
   <a routerLink="/dashboard">Search</a>
   <a routerLink="/linesOfBusiness">View All Lines Of Business</a>
 </nav>
+<div class="top-two-lines-of-business">
+  <h2>Top Two Lines of Business</h2>
+  <div *ngIf="topTwoLinesOfBusiness.length > 0">
+    <div *ngFor="let line of topTwoLinesOfBusiness">
+      <h3>{{ line.name }}</h3>
+      <p>{{ line.description }}</p>
+      <p>Number of Quotes: {{ line.numberOfQuotes }}</p>
+    </div>
+  </div>
+</div>
 <router-outlet></router-outlet>
 <app-messages></app-messages>
